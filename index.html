@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMART DISASTER COMIC - Web Interaktif</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. HALAMAN PEMBUKA -->
+  <div id="welcome-screen" class="screen">
+    <div class="welcome-box">
+      <h1>SMART DISASTER COMIC</h1>
+      <h2>Sistem Edukasi Kebencanaan Inklusif Berbasis Multisensori</h2>
+      <p>Edukasi Siaga Gempa Bumi untuk Siswa SLB</p>
+      <button class="btn-main" onclick="startComic()">MULAI KOMIK INTERAKTIF</button>
+    </div>
+  </div>
+
+  <!-- 2. HALAMAN UTAMA KOMIK -->
+  <div id="comic-screen" class="screen hidden">
+    <!-- Header Navigasi -->
+    <header class="top-nav">
+      <button onclick="prevPage()" id="btn-prev">‹ Sebelumnya</button>
+      <span id="page-indicator">Halaman 1 / 17</span>
+      <button onclick="nextPage()" id="btn-next">Berikutnya ›</button>
+      <button class="btn-audio-page" onclick="playCurrentPageAudio()">🔊 Narasi Halaman</button>
+    </header>
+
+    <!-- Area Viewer Gambar & Hotspot -->
+    <main class="comic-viewport">
+      <div id="comic-container" class="comic-container">
+        <img id="comic-image" src="images/page01.png" alt="Halaman Komik">
+        <!-- Hotspot Layer -->
+        <div id="hotspot-layer"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 3. MODAL MINI-SIMULASI / EVALUASI INTERAKTIF -->
+  <div id="quiz-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2 id="quiz-title">Ayo Uji Pemahamanmu!</h2>
+      <p id="quiz-question">Apa yang harus kamu lakukan pertama kali saat terasa guncangan gempa?</p>
+      <div class="quiz-options">
+        <button onclick="checkAnswer(false)">A. Berlari kencang keluar kelas</button>
+        <button onclick="checkAnswer(true)">B. Lindungi kepala & berlindung di bawah meja</button>
+        <button onclick="checkAnswer(false)">C. Berdiri di dekat jendela kaca</button>
+      </div>
+      <div id="quiz-feedback" class="feedback hidden"></div>
+      <button id="btn-close-quiz" class="btn-secondary hidden" onclick="closeQuiz()">Lanjut Membaca</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- Pemutar Audio Rahasia -->
+<audio id="global-audio-player"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
